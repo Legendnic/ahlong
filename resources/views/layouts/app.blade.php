@@ -19,9 +19,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="bg-dark">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm" style="background-color:#000;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -49,6 +49,40 @@
                                 </li>
                             @endif
                         @else
+                            <!-- this is your home  -->
+                            <li class="nav-item">
+                                <a id="navbarcompany" class="nav-link" href="{{ route('home') }}" role="button" v-pre>
+                                    Home <span class="caret"></span>
+                                </a>
+                            </li>
+
+                            <!-- this is your company -->
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Company <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('company_add') }}">
+                                        Registration
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('company') }}">
+                                        Detail
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('company_edit') }}">
+                                        Edit
+                                    </a>                                    
+                                </div>
+                            </li>
+
+                            <!-- this is list of companies -->
+                            <li class="nav-item">
+                                <a id="navbarcompany" class="nav-link" href="{{ route('company_list') }}" role="button" v-pre>
+                                    Company Lists <span class="caret"></span>
+                                </a>
+                            </li>
+
+                            <!-- this is for account/user dropdown menu -->
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

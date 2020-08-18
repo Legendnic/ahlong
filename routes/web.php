@@ -19,4 +19,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// this is home  routes
 Route::get('/home', 'HomeController@index')->name('home');
+
+// this is company routes
+Route::get('/company', 'CompanyController@index')->name('company');
+Route::get('/company/list', 'CompanyController@show')->name('company_list');
+Route::get('/company/create', 'CompanyController@create')->name('company_add');
+Route::get('/company/edit', 'CompanyController@edit')->name('company_edit');
+Route::post('/company/update/{id}', 'CompanyController@update')->name('company_update');
+Route::delete('/company/delete/{id}', 'CompanyController@destroy')->name('company_delete');
+Route::post('/company/store', 'CompanyController@store')->name('company_store');
